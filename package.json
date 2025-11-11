@@ -1,0 +1,23 @@
+{
+  "name": "rabbit-r1-creations",
+  "version": "1.0.0",
+  "description": "A collection of Rabbit R1 Creations hosted on GitHub Pages",
+  "scripts": {
+    "generate-qr": "node scripts/generate-qr-codes.js"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/delfrrr/rabbit.git"
+  },
+  "keywords": [
+    "rabbit-r1",
+    "creations",
+    "github-pages"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+

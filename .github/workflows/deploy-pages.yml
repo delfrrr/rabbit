@@ -1,4 +1,4 @@
-name: Deploy Hello World to GitHub Pages
+name: Deploy R1 Creations to GitHub Pages
 
 on:
   push:
@@ -15,8 +15,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Generate QR codes and update README
+        run: |
+          npm install -g qrcode
+          node scripts/generate-qr-codes.js
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./hello-world
+          publish_dir: ./
+          exclude_assets: '.github,scripts,node_modules'
