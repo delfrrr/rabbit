@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Generate QR codes and update README
-        run: |
-          npm install -g qrcode
-          node scripts/generate-qr-codes.js
+        run: npm run generate-qr
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
