@@ -20,20 +20,28 @@ const APP_METADATA = {
   'hello-world': {
     name: 'Hello World',
     description: 'A simple Hello World application for Rabbit R1',
-    icon: '👋'
+    icon: '👋',
+    iconUrl: '',
+    themeColor: '#FE5000'
   },
   'plugin-demo': {
     name: 'Plugin Demo',
     description: 'Demonstrates various features available to R1 creations',
-    icon: '🎮'
+    icon: '🎮',
+    iconUrl: '',
+    themeColor: '#FE5000'
   }
 };
 
-async function generateQRCode(url, filepath) {
+async function generateQRCode(jsonData, filepath) {
   try {
-    await QRCode.toFile(filepath, url, {
+    // Convert JSON object to string (same format as QR generator)
+    const qrData = JSON.stringify(jsonData);
+    
+    await QRCode.toFile(filepath, qrData, {
       width: 300,
       margin: 2,
+      errorCorrectionLevel: 'L', // Lowest error correction for maximum data
       color: {
         dark: '#000000',
         light: '#FFFFFF'
@@ -41,7 +49,7 @@ async function generateQRCode(url, filepath) {
     });
     console.log(`✓ Generated QR code: ${filepath}`);
   } catch (err) {
-    console.error(`✗ Error generating QR code for ${url}:`, err);
+    console.error(`✗ Error generating QR code:`, err);
   }
 }
 
@@ -52,9 +60,9 @@ async function checkAppExists(appDir) {
 
 async function generateAllQRCodes() {
   console.log('Generating QR codes for R1 Creations...\n');
-  
+
   const apps = [];
-  
+
   for (const appDir of APP_DIRS) {
     const exists = await checkAppExists(appDir);
     if (!exists) {
@@ -62,16 +70,27 @@ async function generateAllQRCodes() {
       continue;
     }
     
-    const url = `${BASE_URL}/${appDir}`;
+    const url = `${BASE_URL}/${appDir}/`;
     const qrPath = path.join(QR_DIR, `${appDir}.png`);
-    
-    await generateQRCode(url, qrPath);
     
     const metadata = APP_METADATA[appDir] || {
       name: appDir,
       description: `R1 Creation: ${appDir}`,
-      icon: '📱'
+      icon: '📱',
+      iconUrl: '',
+      themeColor: '#FE5000'
     };
+    
+    // Create JSON data in Rabbit R1 format
+    const qrJsonData = {
+      title: metadata.name,
+      url: url,
+      description: metadata.description,
+      iconUrl: metadata.iconUrl || '',
+      themeColor: metadata.themeColor || '#FE5000'
+    };
+    
+    await generateQRCode(qrJsonData, qrPath);
     
     apps.push({
       dir: appDir,
@@ -80,13 +99,13 @@ async function generateAllQRCodes() {
       ...metadata
     });
   }
-  
+
   return apps;
 }
 
 function generateREADME(apps) {
   const timestamp = new Date().toISOString();
-  
+
   return `# Rabbit R1 Creations
 
 A collection of Rabbit R1 Creations hosted on GitHub Pages.
@@ -197,23 +216,23 @@ See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for detailed development documentation
 async function main() {
   try {
     const apps = await generateAllQRCodes();
-    
+
     if (apps.length === 0) {
       console.log('\n⚠ No apps found to generate QR codes for.');
       return;
     }
-    
+
     console.log(`\n✓ Generated ${apps.length} QR code(s)\n`);
-    
+
     const readmeContent = generateREADME(apps);
     fs.writeFileSync(README_PATH, readmeContent, 'utf8');
     console.log('✓ Updated README.md with QR codes\n');
-    
+
     console.log('Summary:');
     apps.forEach(app => {
       console.log(`  - ${app.icon} ${app.name}: ${app.url}`);
     });
-    
+
   } catch (error) {
     console.error('Error:', error);
     process.exit(1);
