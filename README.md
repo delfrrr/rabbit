@@ -7,7 +7,7 @@ A collection of Rabbit R1 Creations hosted on GitHub Pages.
 
 ### 👋 Hello World
 
-**Path:** [`/hello-world`](https://delfrrr.github.io/rabbit/hello-world)
+**Path:** [`/hello-world`](https://delfrrr.github.io/rabbit/hello-world/)
 
 **Description:** A simple Hello World application for Rabbit R1
 
@@ -17,12 +17,12 @@ A collection of Rabbit R1 Creations hosted on GitHub Pages.
 
 **Scan this QR code with your Rabbit R1 device to launch the app.**
 
-[🔗 Open Hello World](https://delfrrr.github.io/rabbit/hello-world)
+[🔗 Open Hello World](https://delfrrr.github.io/rabbit/hello-world/)
 
 
 ### 🎮 Plugin Demo
 
-**Path:** [`/plugin-demo`](https://delfrrr.github.io/rabbit/plugin-demo)
+**Path:** [`/plugin-demo`](https://delfrrr.github.io/rabbit/plugin-demo/)
 
 **Description:** Demonstrates various features available to R1 creations
 
@@ -32,7 +32,7 @@ A collection of Rabbit R1 Creations hosted on GitHub Pages.
 
 **Scan this QR code with your Rabbit R1 device to launch the app.**
 
-[🔗 Open Plugin Demo](https://delfrrr.github.io/rabbit/plugin-demo)
+[🔗 Open Plugin Demo](https://delfrrr.github.io/rabbit/plugin-demo/)
 
 
 ---
@@ -116,4 +116,4 @@ See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for detailed development documentation
 
 ---
 
-*Last updated: 2025-11-11T17:59:45.011Z*
+*Last updated: 2025-11-11T18:03:44.932Z*
