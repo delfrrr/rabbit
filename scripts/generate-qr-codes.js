@@ -13,7 +13,7 @@ if (!fs.existsSync(QR_DIR)) {
 }
 
 // App directories to include (must have index.html)
-const APP_DIRS = ['hello-world', 'plugin-demo'];
+const APP_DIRS = ['hello-world', 'plugin-demo', 'carrot-bunnies'];
 
 // App metadata
 const APP_METADATA = {
@@ -30,6 +30,13 @@ const APP_METADATA = {
     icon: '🎮',
     iconUrl: '',
     themeColor: '#FE5000'
+  },
+  'carrot-bunnies': {
+    name: 'Carrot Bunnies',
+    description: 'A platformer game where bunnies collect carrots while avoiding obstacles',
+    icon: '🐰',
+    iconUrl: '',
+    themeColor: '#FE5000'
   }
 };
 
@@ -37,7 +44,7 @@ async function generateQRCode(jsonData, filepath) {
   try {
     // Convert JSON object to string (same format as QR generator)
     const qrData = JSON.stringify(jsonData);
-    
+
     await QRCode.toFile(filepath, qrData, {
       width: 300,
       margin: 2,
@@ -69,10 +76,10 @@ async function generateAllQRCodes() {
       console.log(`⚠ Skipping ${appDir}: index.html not found`);
       continue;
     }
-    
+
     const url = `${BASE_URL}/${appDir}/`;
     const qrPath = path.join(QR_DIR, `${appDir}.png`);
-    
+
     const metadata = APP_METADATA[appDir] || {
       name: appDir,
       description: `R1 Creation: ${appDir}`,
@@ -80,7 +87,7 @@ async function generateAllQRCodes() {
       iconUrl: '',
       themeColor: '#FE5000'
     };
-    
+
     // Create JSON data in Rabbit R1 format
     const qrJsonData = {
       title: metadata.name,
@@ -89,9 +96,9 @@ async function generateAllQRCodes() {
       iconUrl: metadata.iconUrl || '',
       themeColor: metadata.themeColor || '#FE5000'
     };
-    
+
     await generateQRCode(qrJsonData, qrPath);
-    
+
     apps.push({
       dir: appDir,
       url: url,

@@ -35,6 +35,21 @@ A collection of Rabbit R1 Creations hosted on GitHub Pages.
 [🔗 Open Plugin Demo](https://delfrrr.github.io/rabbit/plugin-demo/)
 
 
+### 🐰 Carrot Bunnies
+
+**Path:** [`/carrot-bunnies`](https://delfrrr.github.io/rabbit/carrot-bunnies/)
+
+**Description:** A platformer game where bunnies collect carrots while avoiding obstacles
+
+**QR Code:**
+
+![Carrot Bunnies QR Code](docs/qr-codes/carrot-bunnies.png)
+
+**Scan this QR code with your Rabbit R1 device to launch the app.**
+
+[🔗 Open Carrot Bunnies](https://delfrrr.github.io/rabbit/carrot-bunnies/)
+
+
 ---
 
 ## 🚀 How It Works
@@ -116,4 +131,4 @@ See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for detailed development documentation
 
 ---
 
-*Last updated: 2025-11-11T18:03:06.183Z*
+*Last updated: 2025-11-11T18:50:52.613Z*
