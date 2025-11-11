@@ -1,7 +1,7 @@
 // Hello World R1 Creation App
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Hello World R1 Creation loaded!');
-    
+
     // Check if running as R1 plugin
     if (typeof PluginMessageHandler !== 'undefined') {
         console.log('Running as R1 Creation');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Running in browser mode');
         updateMessage('Running in browser preview mode.');
     }
-    
+
     // Plugin message handler (for R1 device)
     window.onPluginMessage = function(data) {
         console.log('Received plugin message:', data);
