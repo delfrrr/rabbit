@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=240, initial-scale=1.0, user-scalable=no">
+    <title>Carrot Bunnies - R1 Creation</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu -->
+        <div id="mainMenu" class="screen active">
+            <h1>🐰 Carrot Bunnies</h1>
+            <div class="menu-buttons">
+                <button id="playBtn" class="menu-btn">Play</button>
+                <button id="levelSelectBtn" class="menu-btn">Level Select</button>
+                <button id="settingsBtn" class="menu-btn">Settings</button>
+                <button id="creditsBtn" class="menu-btn">Credits</button>
+            </div>
+        </div>
+
+        <!-- Level Select -->
+        <div id="levelSelect" class="screen">
+            <h2>Select Level</h2>
+            <div class="level-grid">
+                <button class="level-btn" data-level="1">1</button>
+                <button class="level-btn" data-level="2">2</button>
+                <button class="level-btn" data-level="3">3</button>
+                <button class="level-btn" data-level="4">4</button>
+                <button class="level-btn" data-level="5">5</button>
+            </div>
+            <button id="backToMenu" class="back-btn">Back</button>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="screen">
+            <h2>Settings</h2>
+            <div class="settings-content">
+                <label>
+                    <input type="checkbox" id="soundToggle" checked> Sound
+                </label>
+                <label>
+                    <input type="checkbox" id="motionToggle"> Reduced Motion
+                </label>
+            </div>
+            <button id="backToMenu2" class="back-btn">Back</button>
+        </div>
+
+        <!-- Credits -->
+        <div id="credits" class="screen">
+            <h2>Credits</h2>
+            <p>Game by Zoe</p>
+            <button id="backToMenu3" class="back-btn">Back</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <canvas id="gameCanvas"></canvas>
+            <div id="hud">
+                <div class="hud-bubble">
+                    <div class="hud-item">🥕 <span id="carrotCount">0</span></div>
+                    <div class="hud-item">Lvl <span id="levelNum">1</span>/5</div>
+                </div>
+            </div>
+            <div id="touchControls">
+                <button id="leftBtn" class="touch-btn">←</button>
+                <button id="rightBtn" class="touch-btn">→</button>
+                <button id="jumpBtn" class="touch-btn">↑</button>
+            </div>
+            <button id="pauseBtn" class="pause-btn">⏸</button>
+        </div>
+
+        <!-- Pause Menu -->
+        <div id="pauseMenu" class="screen overlay">
+            <div class="pause-content">
+                <h2>Paused</h2>
+                <button id="resumeBtn" class="menu-btn">Resume</button>
+                <button id="restartBtn" class="menu-btn">Restart Level</button>
+                <button id="settingsBtn2" class="menu-btn">Settings</button>
+                <button id="exitBtn" class="menu-btn">Exit to Menu</button>
+            </div>
+        </div>
+
+        <!-- Level Complete -->
+        <div id="levelComplete" class="screen overlay">
+            <div class="complete-content">
+                <h2>Level Complete!</h2>
+                <p>Carrots: <span id="levelCarrots">0</span></p>
+                <button id="nextLevelBtn" class="menu-btn">Next Level</button>
+                <button id="menuBtn2" class="menu-btn">Menu</button>
+            </div>
+        </div>
+
+        <!-- Game Complete -->
+        <div id="gameComplete" class="screen overlay">
+            <div class="complete-content">
+                <h2>🎉 Game Complete!</h2>
+                <p>Total Carrots: <span id="totalCarrots">0</span></p>
+                <button id="playAgainBtn" class="menu-btn">Play Again</button>
+                <button id="menuBtn3" class="menu-btn">Menu</button>
+            </div>
+        </div>
+
+        <!-- Level Failed -->
+        <div id="levelFailed" class="screen overlay">
+            <div class="complete-content">
+                <h2>Level Failed</h2>
+                <p>Not enough carrots!</p>
+                <button id="retryBtn" class="menu-btn">Retry</button>
+                <button id="menuBtn4" class="menu-btn">Menu</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
